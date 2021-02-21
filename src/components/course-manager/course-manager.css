@@ -1,0 +1,35 @@
+.ss-sticky-nav-bar {
+    background-color: #464b4f;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    color: #f9fdfd;
+}
+
+.container-fluid {
+    padding-top: 70px;
+}
+
+
+.ss-plus-button {
+    background-color: inherit;
+    border: none;
+    background: none;
+    outline: inherit;
+}
+
+.ss-plus-icon {
+    color: #ff6600;
+    padding-top: 5px;
+}
+
+.ss-dashboard-title {
+    padding-left: 15px;
+}
+
+@media screen and (max-width: 1112px) {
+    .ss-dashboard-title {
+        display: none;
+    }
+}
