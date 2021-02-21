@@ -28,7 +28,7 @@
     padding-left: 15px;
 }
 
-@media screen and (max-width: 1112px) {
+@media screen and (max-width: 1120px) {
     .ss-dashboard-title {
         display: none;
     }

@@ -24,49 +24,13 @@
 }
 
 
-@media screen and (max-width: 1225px) and (min-width: 1045px) {
-    .ss-folder-icon-col {
-        display: none;
-    }
-
-    .ss-alpha-sort-col {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 1045px) and (min-width: 835px) {
-    .ss-alpha-sort-col {
-        display: none;
-    }
-
-    .ss-grip-col {
-        display: none;
-    }
-}
-
 @media screen and (max-width: 835px) and (min-width: 565px) {
-    .ss-alpha-sort-col {
-        display: none;
-    }
-
-    .ss-grip-col {
-        display: none;
-    }
-
     .ss-last-modified-col {
         display: none;
     }
 }
 
 @media screen and (max-width: 565px) {
-    .ss-alpha-sort-col {
-        display: none;
-    }
-
-    .ss-grip-col {
-        display: none;
-    }
-
     .ss-last-modified-col {
         display: none;
     }
@@ -74,4 +38,8 @@
     .ss-owned-by-col {
         display: none;
     }
+}
+
+.ss-course-list-table tr{
+    line-height: 40px;
 }

@@ -60,7 +60,7 @@ class CourseManager extends React.Component {
 
                 <div className="ss-sticky-nav-bar">
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-3">
                             <h3 className="title">
                                 <i className="fas fa-bars"/>
                                 <span className="ss-dashboard-title">
@@ -69,12 +69,12 @@ class CourseManager extends React.Component {
                             </h3>
                         </div>
 
-                        <div className="col-9">
+                        <div className="col-7">
                             <input className="form-control" placeholder="New Course Title"/>
                         </div>
 
-                        <div className="col-1">
-                            <button className="ss-plus-button float-right">
+                        <div className="col-2">
+                            <button className="ss-plus-button float-right" onClick={this.addCourse}>
                                 <i className="fas fa-plus-circle fa-2x ss-plus-icon"/>
                             </button>
                         </div>
@@ -102,6 +102,12 @@ class CourseManager extends React.Component {
                            render={(props) =>
                                <CourseEditor props={props}/>}>
                     </Route>
+                </div>
+
+                <div className="float-right">
+                    <button className="ss-plus-button" onClick={this.addCourse}>
+                        <i className="fa-pull-right fas fa-plus-circle fa-3x ss-plus-icon"/>
+                    </button>
                 </div>
 
             </div>
