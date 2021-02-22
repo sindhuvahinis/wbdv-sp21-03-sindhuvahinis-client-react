@@ -19,7 +19,13 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
     }
 
     return (
-        <div className="col-3 ss-course-card">
+        // 1400 to above - xxl (hd)
+        // 1200 to 1399 - xl (mdpi)
+        // 992 to 1199 - lg ipad pro
+        // 768 to 991 - md ipad
+        // 576 to 767 - sm
+        // xs - all mobiles
+        <div className="col-xl-3 col-lg-3 col-md-5 col-sm-12 ss-course-card">
             <div className="card">
                 <div className="card-body">
                     {
