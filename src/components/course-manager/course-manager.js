@@ -1,27 +1,33 @@
 import React from 'react'
 import CourseTable from "../course-table/course-table";
-import CourseGrid from "../course-grid";
+import CourseGrid from "../course-grid/course-grid";
 import {Link, Route} from "react-router-dom";
-import CourseEditor from "../course-editor";
+import CourseEditor from "../course-editor/course-editor";
 import courseService from "../../services/course-service";
 import "./course-manager.css"
 
 class CourseManager extends React.Component {
 
+    constructor() {
+        super();
+        this.handleChange = this.handleChange.bind(this);
+        this.handleAddCourse = this.handleAddCourse.bind(this);
+    }
+
     state = {
-        courses: []
+        courses: [],
+        newCourseTitle: "New Course"
     }
 
     componentDidMount = () =>
         courseService.findAllCourses()
             .then(courses => this.setState({courses}))
 
-    addCourse = () => {
-
+    addCourse = (titleToBeAdded) => {
         const newCourse = {
-            title: "New Course",
+            title: titleToBeAdded,
             owner: "me",
-            lastModified: "2/10/2021"
+            lastModified: "2/22/2021"
         }
 
         courseService.createCourse(newCourse)
@@ -54,6 +60,22 @@ class CourseManager extends React.Component {
             })
     }
 
+    handleAddCourse(event) {
+        console.log(this.state.newCourseTitle);
+        this.addCourse(this.state.newCourseTitle);
+        this.setState({
+            newCourseTitle: "New Course"
+        });
+
+        document.querySelector('input.ss-header-input').value = "";
+    }
+
+    handleChange(event) {
+        this.setState({
+            newCourseTitle: event.target.value
+        });
+    }
+
     render() {
         return (
             <div>
@@ -70,11 +92,16 @@ class CourseManager extends React.Component {
                         </div>
 
                         <div className="col-7">
-                            <input className="form-control" placeholder="New Course Title"/>
+                            <input
+                                className="form-control ss-header-input"
+                                placeholder="New Course"
+                                //value={this.state.newCourseTitle}
+                                onChange={this.handleChange}/>
                         </div>
 
                         <div className="col-2">
-                            <button className="ss-plus-button float-right" onClick={this.addCourse}>
+                            <button className="ss-plus-button float-right"
+                                    onClick={this.handleAddCourse}>
                                 <i className="fas fa-plus-circle fa-2x ss-plus-icon"/>
                             </button>
                         </div>
@@ -97,15 +124,11 @@ class CourseManager extends React.Component {
                             deleteCourse={this.deleteCourse}
                             courses={this.state.courses}/>
                     </Route>
-
-                    <Route path="/courses/editor"
-                           render={(props) =>
-                               <CourseEditor props={props}/>}>
-                    </Route>
                 </div>
 
                 <div className="float-right">
-                    <button className="ss-plus-button" onClick={this.addCourse}>
+                    <button className="ss-plus-button"
+                            onClick={this.handleAddCourse}>
                         <i className="fa-pull-right fas fa-plus-circle fa-3x ss-plus-icon"/>
                     </button>
                 </div>
