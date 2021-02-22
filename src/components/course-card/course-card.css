@@ -3,12 +3,22 @@
 }
 .ss-card-check-icon {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 30px;
+    right: 30px;
+    color: green;
+}
+
+.ss-card-check-icon:hover {
+    color: darkgreen;
 }
 
 .ss-card-times-icon {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 30px;
+    right: 55px;
+    color: red;
+}
+
+.ss-card-times-icon:hover {
+    color: darkred;
 }

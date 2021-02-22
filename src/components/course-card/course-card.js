@@ -18,6 +18,11 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
         updateCourse(newCourse)
     }
 
+    const cancelTitle = () => {
+        setEditing(false);
+        setNewTitle(course.title);
+    }
+
     return (
         // 1400 to above - xxl (hd)
         // 1200 to 1399 - xl (mdpi)
@@ -66,7 +71,7 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
                     }
                     {
                         editing &&
-                        <i onClick={() => setEditing(false)}
+                        <i onClick={() => cancelTitle()}
                            className="fas fa-times ss-card-times-icon"/>
                     }
                 </div>
