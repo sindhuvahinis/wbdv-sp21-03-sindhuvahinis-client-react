@@ -81,7 +81,7 @@ class CourseManager extends React.Component {
         return (
             <div>
                 <Switch>
-                    <Route path="/courses/table" component={Stickyheader} />
+                    <Route path="/courses/table" render={() => <Stickyheader handleChange={this.handleChange} handleAddCourse = {this.handleAddCourse}/>} />
                     <Route path="/courses/grid" component={Stickyheader} />
                     <Route path="/courses/editor" component={StickyHeaderWithoutAddCourse}/>
                 </Switch>

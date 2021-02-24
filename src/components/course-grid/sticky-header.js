@@ -14,7 +14,7 @@ export const StickyHeaderWithoutAddCourse = (props) =>
         </div>
     </div>
 
-const Stickyheader  = (props)  =>
+const Stickyheader  = ({handleAddCourse, handleChange})  =>
     <div className="ss-sticky-nav-bar">
         <div className="row">
             <div className="col-3">
@@ -31,12 +31,12 @@ const Stickyheader  = (props)  =>
                     className="form-control ss-header-input"
                     placeholder="New Course"
                     //value={this.state.newCourseTitle}
-                    onChange={props.handleChange}/>
+                    onChange={handleChange}/>
             </div>
 
             <div className="col-2">
                 <button className="ss-plus-button float-right"
-                        onClick={props.handleAddCourse}>
+                        onClick={handleAddCourse}>
                     <i className="fas fa-plus-circle fa-2x ss-plus-icon"/>
                 </button>
             </div>
