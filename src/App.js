@@ -14,10 +14,6 @@ function App() {
                 <Route path="/courses">
                     <CourseManager/>
                 </Route>
-                <Route path="/editor"
-                       render={(props) =>
-                           <CourseEditor props={props}/>}>
-                </Route>
             </div>
         </BrowserRouter>
     );

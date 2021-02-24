@@ -26,7 +26,7 @@ const CourseRow = (
             <td className="ss-title-col">
                 {
                     !editing &&
-                    <Link to="/editor">
+                    <Link to="/courses/editor">
                         <i className="fas fa-file-alt ss-file-icon"/>
                         {course.title}
                     </Link>

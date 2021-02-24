@@ -1,10 +1,11 @@
 import React from 'react'
 import CourseTable from "../course-table/course-table";
 import CourseGrid from "../course-grid/course-grid";
-import {Link, Route} from "react-router-dom";
+import {Link, Route, Switch} from "react-router-dom";
 import CourseEditor from "../course-editor/course-editor";
 import courseService from "../../services/course-service";
 import "./course-manager.css"
+import Stickyheader, {StickyHeaderWithoutAddCourse} from "../course-grid/sticky-header";
 
 class CourseManager extends React.Component {
 
@@ -79,51 +80,31 @@ class CourseManager extends React.Component {
     render() {
         return (
             <div>
-
-                <div className="ss-sticky-nav-bar">
-                    <div className="row">
-                        <div className="col-3">
-                            <h3 className="title">
-                                <i className="fas fa-bars"/>
-                                <span className="ss-dashboard-title">
-                                    Course Manager
-                                </span>
-                            </h3>
-                        </div>
-
-                        <div className="col-7">
-                            <input
-                                className="form-control ss-header-input"
-                                placeholder="New Course"
-                                //value={this.state.newCourseTitle}
-                                onChange={this.handleChange}/>
-                        </div>
-
-                        <div className="col-2">
-                            <button className="ss-plus-button float-right"
-                                    onClick={this.handleAddCourse}>
-                                <i className="fas fa-plus-circle fa-2x ss-plus-icon"/>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-
-
+                <Switch>
+                    <Route path="/courses/table" component={Stickyheader} />
+                    <Route path="/courses/grid" component={Stickyheader} />
+                    <Route path="/courses/editor" component={StickyHeaderWithoutAddCourse}/>
+                </Switch>
                 <div className="container-fluid">
-                    <Route path="/courses/table">
-                        <CourseTable
-                            updateCourse={this.updateCourse}
-                            deleteCourse={this.deleteCourse}
-                            courses={this.state.courses}/>
-                    </Route>
+                        <Route path="/courses/table">
+                            <CourseTable
+                                updateCourse={this.updateCourse}
+                                deleteCourse={this.deleteCourse}
+                                courses={this.state.courses}
+                                />
+                        </Route>
 
-                    <Route path="/courses/grid">
-                        <CourseGrid
-                            updateCourse={this.updateCourse}
-                            deleteCourse={this.deleteCourse}
-                            courses={this.state.courses}/>
-                    </Route>
+                        <Route path="/courses/grid">
+                            <CourseGrid
+                                updateCourse={this.updateCourse}
+                                deleteCourse={this.deleteCourse}
+                                courses={this.state.courses}/>
+                        </Route>
+
+                        <Route path="/courses/editor"
+                               render={(props) =>
+                                   <CourseEditor props={props}/>}>
+                        </Route>
                 </div>
 
                 <div className="float-right">

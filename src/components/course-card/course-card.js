@@ -53,7 +53,7 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
                         make up the bulk of the card's content.
                     </p>
 
-                    <Link to="/editor" className="btn btn-primary">
+                    <Link to="/courses/editor" className="btn btn-primary">
                         {course.title}
                     </Link>
                     <i className="fas fa-trash float-right" onClick={() => deleteCourse(course)}/>
