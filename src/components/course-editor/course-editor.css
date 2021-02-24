@@ -16,6 +16,8 @@ html, body, #root {
     padding-bottom: 10px;
     padding-top: 10px;
     --bs-gutter-x: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .ss-brand-title-header {
