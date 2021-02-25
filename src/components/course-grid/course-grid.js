@@ -7,15 +7,15 @@ const CourseGrid = ({updateCourse, deleteCourse, courses}) =>
     <div>
 
         <div className="row ss-grid-header-row">
-            <div className="col-5">
+            <div className="col-lg-5 col-md-9 ss-cg-recent-document-col">
                 <h4>Recent Documents</h4>
             </div>
 
-            <div className="col-5">
+            <div className="col-lg-5 ss-cg-owned-by-col">
                 <h4>Owned by me</h4>
             </div>
 
-            <div className="col-2 text-right">
+            <div className="col-lg-2 col-md-3 col-xs-12 text-right">
                 <i className="fas fa-folder fa-lg ss-grid-header-icon"/>
                 <i className="fas fa-sort-alpha-down fa-lg ss-grid-header-icon"/>
                 <Link to="/courses/table">
@@ -27,7 +27,8 @@ const CourseGrid = ({updateCourse, deleteCourse, courses}) =>
 
         <div className="row">
             {
-                courses.map(course => <CourseCard updateCourse={updateCourse} deleteCourse={deleteCourse} course={course}/>)
+                courses.map(course => <CourseCard updateCourse={updateCourse}
+                                                  deleteCourse={deleteCourse} course={course}/>)
             }
         </div>
     </div>

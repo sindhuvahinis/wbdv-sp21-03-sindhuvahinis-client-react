@@ -41,6 +41,7 @@ const CourseRow = (
             </td>
             <td className="ss-owned-by-col">{course.owner}</td>
             <td className="ss-last-modified-col">{course.lastModified}</td>
+            <td/>
             <td>
                 <i onClick={() => deleteCourse(course)} className="fas fa-trash"/>
             </td>
@@ -57,7 +58,6 @@ const CourseRow = (
                        className="fas fa-check"/>
                 }
             </td>
-            <td></td>
 
         </tr>)
 }

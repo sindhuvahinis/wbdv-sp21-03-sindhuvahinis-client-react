@@ -6,3 +6,19 @@
 .ss-grid-header-icon {
     padding: 10px;
 }
+
+@media screen and (max-width: 835px) and (min-width: 565px) {
+    .ss-cg-recent-document-col {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 565px) {
+    .ss-cg-recent-document-col {
+        display: none;
+    }
+
+    .ss-cg-owned-by-col {
+        display: none;
+    }
+}
