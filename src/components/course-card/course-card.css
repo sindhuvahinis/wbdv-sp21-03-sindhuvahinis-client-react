@@ -22,19 +22,3 @@
 .ss-card-times-icon:hover {
     color: darkred;
 }
-
-@media screen and (max-width: 835px) and (min-width: 565px) {
-    .ss-last-modified-col {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 565px) {
-    .ss-last-modified-col {
-        display: none;
-    }
-
-    .ss-owned-by-col {
-        display: none;
-    }
-}

@@ -30,7 +30,7 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
         // 768 to 991 - md ipad
         // 576 to 767 - sm
         // xs - all mobiles
-        <div className="col-xl-3 col-lg-3 col-md-5 col-sm-12 ss-course-card">
+        <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-xs-12 ss-course-card">
             <div className="card">
                 <div className="card-body">
                     {
@@ -49,31 +49,41 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
                     }
 
                     <p className="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
+                        Some example.
                     </p>
 
-                    <Link to="/courses/editor" className="btn btn-primary">
-                        {course.title}
-                    </Link>
-                    <i className="fas fa-trash float-right" onClick={() => deleteCourse(course)}/>
+                    <div className="row">
+                        <div className="col-12">
+                            <Link to="/courses/editor" className="btn btn-block btn-primary">
+                                {course.title}
+                            </Link>
+                        </div>
+                    </div>
 
-                    {
-                        !editing &&
-                        <i onClick={() => setEditing(true)}
-                           className="fas fa-edit float-right"/>
-                    }
+                    <div className="row float-right">
+                        {
+                            !editing &&
+                            <i onClick={() => {
+                                setNewTitle(course.title)
+                                setEditing(true)
+                            }}
+                               className="fas fa-edit ss-cr-edit-icon float-right"/>
+                        }
 
-                    {
-                        editing &&
-                        <i onClick={() => saveTitle()}
-                           className="fas fa-check ss-card-check-icon"/>
-                    }
-                    {
-                        editing &&
-                        <i onClick={() => cancelTitle()}
-                           className="fas fa-times ss-card-times-icon"/>
-                    }
+                        {
+                            editing &&
+                            <i onClick={() => saveTitle()}
+                               className="fas fa-check ss-card-check-icon"/>
+                        }
+                        {
+                            editing &&
+                            <i onClick={() => {
+                                setEditing(false);
+                                return deleteCourse(course);
+                            }}
+                               className="fas fa-times ss-card-times-icon"/>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

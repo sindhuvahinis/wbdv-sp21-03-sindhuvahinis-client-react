@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
+import "./course-row.css"
 
 const CourseRow = (
     {
@@ -42,20 +43,29 @@ const CourseRow = (
             <td className="ss-owned-by-col">{course.owner}</td>
             <td className="ss-last-modified-col">{course.lastModified}</td>
             <td/>
+            <td/>
             <td>
-                <i onClick={() => deleteCourse(course)} className="fas fa-trash"/>
-            </td>
-            <td>
+                {
+
+                    editing &&
+                    <div>
+                        <i onClick={() => saveTitle()}
+                           className="fas fa-check ss-cr-check-icon"/>
+                        <i onClick={() => {
+                            setEditing(false);
+                            return deleteCourse(course);
+                        }}
+                           className="fas fa-times ss-cr-times-icon"/>
+                    </div>
+                }
                 {
                     !editing &&
-                    <i onClick={() => setEditing(true)}
+                    <i onClick={() => {
+                        setNewTitle(course.title)
+                        setEditing(true)
+                    }}
                        className="fas fa-edit"/>
-                }
 
-                {
-                    editing &&
-                    <i onClick={() => saveTitle()}
-                       className="fas fa-check"/>
                 }
             </td>
 

@@ -7,13 +7,7 @@
     padding: 10px;
 }
 
-@media screen and (max-width: 835px) and (min-width: 565px) {
-    .ss-cg-recent-document-col {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 565px) {
+@media screen and (max-width: 767px) {
     .ss-cg-recent-document-col {
         display: none;
     }
