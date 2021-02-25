@@ -18,11 +18,6 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
         updateCourse(newCourse)
     }
 
-    const cancelTitle = () => {
-        setEditing(false);
-        setNewTitle(course.title);
-    }
-
     return (
         // 1400 to above - xxl (hd)
         // 1200 to 1399 - xl (mdpi)
@@ -52,22 +47,23 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
                         Some example.
                     </p>
 
-                    <div className="row">
-                        <div className="col-12">
-                            <Link to="/courses/editor" className="btn btn-block btn-primary">
+                    <span>
+                        <a href="/courses/editor">
+                            <a className="btn btn-primary btn-block ss-cc-course-button">
                                 {course.title}
-                            </Link>
-                        </div>
-                    </div>
+                            </a>
+                        </a>
+                    </span>
 
-                    <div className="row float-right">
+
+                    <div className="row float-right ss-cc-edit-row">
                         {
                             !editing &&
                             <i onClick={() => {
                                 setNewTitle(course.title)
                                 setEditing(true)
                             }}
-                               className="fas fa-edit ss-cr-edit-icon float-right"/>
+                               className="fas fa-edit ss-cc-edit-icon"/>
                         }
 
                         {

@@ -1,6 +1,7 @@
 .ss-course-card {
-    margin: 25px 25px;
+    margin: 15px 15px;
 }
+
 .ss-card-check-icon {
     position: absolute;
     top: 30px;
@@ -21,4 +22,25 @@
 
 .ss-card-times-icon:hover {
     color: darkred;
+}
+
+.ss-cc-edit-row {
+    padding-top: 130px;
+    padding-right: 20px;
+}
+
+.ss-cc-edit-icon {
+    color: blue;
+}
+
+.card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ss-cc-course-button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
