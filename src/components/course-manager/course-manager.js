@@ -5,7 +5,7 @@ import {Link, Route, Switch} from "react-router-dom";
 import CourseEditor from "../course-editor/course-editor";
 import courseService from "../../services/course-service";
 import "./course-manager.css"
-import Stickyheader, {StickyHeaderWithoutAddCourse} from "../course-grid/sticky-header";
+import Stickyheader, {StickyHeaderWithoutAddCourse, FloatingPlusIcon} from "../course-grid/sticky-header";
 
 class CourseManager extends React.Component {
 
@@ -107,12 +107,11 @@ class CourseManager extends React.Component {
                         </Route>
                 </div>
 
-                <div className="float-right">
-                    <button className="ss-plus-button"
-                            onClick={this.handleAddCourse}>
-                        <i className="fa-pull-right fas fa-plus-circle fa-3x ss-plus-icon"/>
-                    </button>
-                </div>
+                <Switch>
+                    <Route path="/courses/table" render={() => <FloatingPlusIcon handleAddCourse = {this.handleAddCourse}/>} />
+                    <Route path="/courses/grid" component={FloatingPlusIcon} />
+                    <Route path="/courses/editor"/>
+                </Switch>
 
             </div>
         )

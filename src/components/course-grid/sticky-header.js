@@ -14,7 +14,15 @@ export const StickyHeaderWithoutAddCourse = (props) =>
         </div>
     </div>
 
-const Stickyheader  = ({handleAddCourse, handleChange})  =>
+export const FloatingPlusIcon = ({handleAddCourse}) =>
+    <div className="float-right">
+        <button className="ss-plus-button"
+                onClick={handleAddCourse}>
+            <i className="fa-pull-right fas fa-plus-circle fa-3x ss-plus-icon"/>
+        </button>
+    </div>
+
+const Stickyheader = ({handleAddCourse, handleChange}) =>
     <div className="ss-sticky-nav-bar">
         <div className="row">
             <div className="col-3">
