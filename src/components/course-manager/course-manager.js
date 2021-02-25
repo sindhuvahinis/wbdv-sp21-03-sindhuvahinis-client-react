@@ -82,7 +82,7 @@ class CourseManager extends React.Component {
             <div>
                 <Switch>
                     <Route path="/courses/table" render={() => <Stickyheader handleChange={this.handleChange} handleAddCourse = {this.handleAddCourse}/>} />
-                    <Route path="/courses/grid" component={Stickyheader} />
+                    <Route path="/courses/grid" render={() => <Stickyheader handleChange={this.handleChange} handleAddCourse = {this.handleAddCourse}/>} />
                     <Route path="/courses/editor" component={StickyHeaderWithoutAddCourse}/>
                 </Switch>
                 <div className="container-fluid">
@@ -109,7 +109,7 @@ class CourseManager extends React.Component {
 
                 <Switch>
                     <Route path="/courses/table" render={() => <FloatingPlusIcon handleAddCourse = {this.handleAddCourse}/>} />
-                    <Route path="/courses/grid" component={FloatingPlusIcon} />
+                    <Route path="/courses/grid" render={() => <FloatingPlusIcon handleAddCourse = {this.handleAddCourse}/>} />
                     <Route path="/courses/editor"/>
                 </Switch>
 

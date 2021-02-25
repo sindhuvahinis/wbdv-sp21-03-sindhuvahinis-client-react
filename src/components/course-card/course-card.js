@@ -48,11 +48,10 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
                     </p>
 
                     <span>
-                        <a href="/courses/editor">
-                            <a className="btn btn-primary btn-block ss-cc-course-button">
+                        <Link to="/courses/editor"
+                              className="btn btn-primary btn-block ss-cc-course-button">
                                 {course.title}
-                            </a>
-                        </a>
+                        </Link>
                     </span>
 
 
