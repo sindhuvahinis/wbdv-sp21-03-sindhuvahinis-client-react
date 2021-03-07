@@ -112,6 +112,10 @@ class CourseManager extends React.Component {
                            render={(props) =>
                                <CourseEditor props={props}/>}>
                     </Route>
+                    <Route path="/courses/editor/:courseId/:moduleId"
+                           render={(props) =>
+                               <CourseEditor props={props}/>}>>
+                    </Route>
                 </div>
 
                 <Switch>

@@ -23,7 +23,7 @@ const store = createStore(reducer)
 
 const CourseEditor = ({props}) => {
 
-    const {courseId} = useParams();
+    const {courseId, moduleId} = useParams();
 
     return (
         <Provider store={store}>
