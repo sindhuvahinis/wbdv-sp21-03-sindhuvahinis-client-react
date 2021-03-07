@@ -9,6 +9,7 @@ import {Provider} from "react-redux"
 
 import ModuleList from "../module-list/module-list";
 import LessonTabs from "../../lesson-tabs/lesson-tabs";
+import {useParams} from "react-router";
 
 
 // combine reducers using map
@@ -21,6 +22,9 @@ const reducer = combineReducers({
 const store = createStore(reducer)
 
 const CourseEditor = ({props}) => {
+
+    const {courseId} = useParams();
+
     return (
         <Provider store={store}>
             <div className="container">
@@ -49,15 +53,18 @@ const CourseEditor = ({props}) => {
                                     </a>
                                 </li>
                                 <li className="nav-item ss-topics-nav-item">
-                                    <a className="nav-link ss-topics-nav-item-link ss-link" href="#">Topic
+                                    <a className="nav-link ss-topics-nav-item-link ss-link"
+                                       href="#">Topic
                                         2</a>
                                 </li>
                                 <li className="nav-item ss-topics-nav-item">
-                                    <a className="nav-link ss-topics-nav-item-link ss-link" href="#">Topic
+                                    <a className="nav-link ss-topics-nav-item-link ss-link"
+                                       href="#">Topic
                                         3</a>
                                 </li>
                                 <li className="nav-item ss-topics-nav-item">
-                                    <a className="nav-link ss-topics-nav-item-link ss-link" href="#">Topic
+                                    <a className="nav-link ss-topics-nav-item-link ss-link"
+                                       href="#">Topic
                                         4</a>
                                 </li>
                                 <li className="nav-item ss-topics-nav-item">
