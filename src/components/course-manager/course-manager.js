@@ -5,7 +5,10 @@ import {Link, Route, Switch} from "react-router-dom";
 import CourseEditor from "../course-editor/course-editor";
 import courseService from "../../services/course-service";
 import "./course-manager.css"
-import Stickyheader, {StickyHeaderWithoutAddCourse, FloatingPlusIcon} from "../course-grid/sticky-header";
+import Stickyheader, {
+    StickyHeaderWithoutAddCourse,
+    FloatingPlusIcon
+} from "../course-grid/sticky-header";
 
 class CourseManager extends React.Component {
 
@@ -81,35 +84,41 @@ class CourseManager extends React.Component {
         return (
             <div>
                 <Switch>
-                    <Route path="/courses/table" render={() => <Stickyheader handleChange={this.handleChange} handleAddCourse = {this.handleAddCourse}/>} />
-                    <Route path="/courses/grid" render={() => <Stickyheader handleChange={this.handleChange} handleAddCourse = {this.handleAddCourse}/>} />
+                    <Route path="/courses/table"
+                           render={() => <Stickyheader handleChange={this.handleChange}
+                                                       handleAddCourse={this.handleAddCourse}/>}/>
+                    <Route path="/courses/grid"
+                           render={() => <Stickyheader handleChange={this.handleChange}
+                                                       handleAddCourse={this.handleAddCourse}/>}/>
                     <Route path="/courses/editor" component={StickyHeaderWithoutAddCourse}/>
                 </Switch>
                 <div className="container-fluid">
-                        <Route path="/courses/table">
-                            <CourseTable
-                                updateCourse={this.updateCourse}
-                                deleteCourse={this.deleteCourse}
-                                courses={this.state.courses}
-                                />
-                        </Route>
+                    <Route path="/courses/table">
+                        <CourseTable
+                            updateCourse={this.updateCourse}
+                            deleteCourse={this.deleteCourse}
+                            courses={this.state.courses}
+                        />
+                    </Route>
 
-                        <Route path="/courses/grid">
-                            <CourseGrid
-                                updateCourse={this.updateCourse}
-                                deleteCourse={this.deleteCourse}
-                                courses={this.state.courses}/>
-                        </Route>
+                    <Route path="/courses/grid">
+                        <CourseGrid
+                            updateCourse={this.updateCourse}
+                            deleteCourse={this.deleteCourse}
+                            courses={this.state.courses}/>
+                    </Route>
 
-                        <Route path="/courses/editor"
-                               render={(props) =>
-                                   <CourseEditor props={props}/>}>
-                        </Route>
+                    <Route path="/courses/editor/:courseId"
+                           render={(props) =>
+                               <CourseEditor props={props}/>}>
+                    </Route>
                 </div>
 
                 <Switch>
-                    <Route path="/courses/table" render={() => <FloatingPlusIcon handleAddCourse = {this.handleAddCourse}/>} />
-                    <Route path="/courses/grid" render={() => <FloatingPlusIcon handleAddCourse = {this.handleAddCourse}/>} />
+                    <Route path="/courses/table" render={() => <FloatingPlusIcon
+                        handleAddCourse={this.handleAddCourse}/>}/>
+                    <Route path="/courses/grid" render={() => <FloatingPlusIcon
+                        handleAddCourse={this.handleAddCourse}/>}/>
                     <Route path="/courses/editor"/>
                 </Switch>
 

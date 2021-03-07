@@ -1,16 +1,25 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import EditableItem from "../editable-item/editable-item";
 
-const ModuleList = ({myModules=[]}) =>
+const ModuleList = (
+    {
+        myModules = [],
+        createModule,
+        deleteModule,
+        updateModule
+    }) =>
     <div>
         <ul className="list-group ss-module-list-group">
             {
                 myModules.map(module =>
                     <li className="list-group-item ss-module-list-group-item">
                         <div className="ss-module-link">
-                            <a href="#" className="ss-module-name ss-link">{module.title}</a>
-                            <a href="#" className="ss-module-delete-icon-link ss-link">
-                                <i className="fa-pull-right fas fa-trash ss-module-delete-icon"/>
+                            <a href="#" className="nav-link ss-link">
+                                <EditableItem
+                                    updateItem={updateModule}
+                                    deleteItem={deleteModule}
+                                    item={module}/>
                             </a>
                         </div>
                     </li>
@@ -19,7 +28,8 @@ const ModuleList = ({myModules=[]}) =>
 
             <li className="list-group-item ss-module-list-group-item">
                 <a href="#">
-                    <i className="fa-pull-right fas fa-plus-circle fa-lg ss-plus-icon ss-module-plus-icon ss-link"/>
+                    <i onClick={createModule}
+                       className="fa-pull-right fas fa-plus-circle fa-2x ss-plus-icon ss-module-plus-icon ss-link"/>
                 </a>
             </li>
         </ul>
@@ -31,6 +41,25 @@ const stpm = (state) => {
     }
 }
 const dtpm = (dispatch) => {
+    return {
+        createModule: () => {
+            dispatch({
+                type: "CREATE_MODULE"
+            })
+        },
+        deleteModule: (item) => {
+            dispatch({
+                type: "DELETE_MODULE",
+                moduleToDelete: item
+            })
+        },
+        updateModule: (item) => {
+            dispatch({
+                type: "UPDATE_MODULE",
+                moduleToUpdate: item
+            })
+        }
+    }
 }
 
 export default connect(stpm, dtpm)(ModuleList)
