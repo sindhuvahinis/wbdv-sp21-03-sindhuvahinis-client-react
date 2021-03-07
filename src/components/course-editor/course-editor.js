@@ -9,7 +9,7 @@ import {Provider} from "react-redux"
 
 import ModuleList from "../module-list/module-list";
 import LessonTabs from "../../lesson-tabs/lesson-tabs";
-import {useParams} from "react-router";
+import {useParams} from "react-router-dom";
 
 
 // combine reducers using map

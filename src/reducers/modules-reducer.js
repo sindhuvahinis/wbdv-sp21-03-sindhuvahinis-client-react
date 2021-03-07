@@ -1,5 +1,3 @@
-import {act} from "@testing-library/react";
-
 const initialState = {
     modules: [
         {_id: 123, title: "Module 1"},
@@ -15,17 +13,22 @@ const initialState = {
 
 const moduleReducer = (state = initialState, action) => {
     switch (action.type) {
+        case "FIND_MODULES_FOR_COURSE":
+            const newStateFindModules = {
+                ...state,
+                modules: action.modules
+            }
+            return newStateFindModules
+
         case "CREATE_MODULE":
             const newState = {
                 modules: [
                     ...state.modules,
-                    {
-                        title: "New module",
-                        _id: (new Date()).getTime()
-                    }
+                    action.module
                 ]
             }
             return newState
+
         case "DELETE_MODULE":
             const newStateDelete = {
                 modules: state.modules.filter(module => {
@@ -37,6 +40,7 @@ const moduleReducer = (state = initialState, action) => {
                 })
             }
             return newStateDelete
+
         case "UPDATE_MODULE":
             return {
                 modules: state.modules.map(module => {

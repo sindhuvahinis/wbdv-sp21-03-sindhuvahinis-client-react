@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const EditableItem = (
     {
-        to = "/somewhere/to/go",
+        to,
         updateItem,
         deleteItem = () => alert("delete 123"),
         item = {title: "Some title", _id: "ABC"}
@@ -17,7 +17,7 @@ const EditableItem = (
             {
                 !editing &&
                 <>
-                    <Link to={to} className="nav-link ss-link">
+                    <Link to={to} className="nav-link">
                         {item.title}
                     </Link>
                     <i onClick={() => setEditing(true)} className="fas fa-edit"/>

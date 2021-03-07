@@ -1,29 +1,35 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item/editable-item";
 import {useParams} from "react-router-dom";
+import moduleService from '../../services/module-service'
 
 const ModuleList = (
     {
         myModules = [],
         createModule,
         deleteModule,
-        updateModule
+        updateModule,
+        findModulesForCourse
     }) => {
-    const {courseId} = useParams();
+
+    const {courseId, moduleId} = useParams();
+    useEffect(() => {
+        findModulesForCourse(courseId)
+    }, [])
+
     return (<div>
         <ul className="list-group ss-module-list-group">
             {
                 myModules.map(module =>
                     <li className="list-group-item ss-module-list-group-item">
                         <div className="ss-module-link">
-                            <a href="#" className="nav-link ss-link">
-                                <EditableItem
-                                    to={`/courses/editor/${courseId}/${module._id}`}
-                                    updateItem={updateModule}
-                                    deleteItem={deleteModule}
-                                    item={module}/>
-                            </a>
+                            <EditableItem
+                                to={`/courses/editor/${courseId}/${module._id}`}
+                                updateItem={updateModule}
+                                deleteItem={deleteModule}
+                                active={module._id === moduleId}
+                                item={module}/>
                         </div>
                     </li>
                 )
@@ -31,7 +37,7 @@ const ModuleList = (
 
             <li className="list-group-item ss-module-list-group-item">
                 <a href="#">
-                    <i onClick={createModule}
+                    <i onClick={() => createModule(courseId)}
                        className="fa-pull-right fas fa-plus-circle fa-2x ss-plus-icon ss-module-plus-icon ss-link"/>
                 </a>
             </li>
@@ -46,22 +52,35 @@ const stpm = (state) => {
 }
 const dtpm = (dispatch) => {
     return {
-        createModule: () => {
-            dispatch({
-                type: "CREATE_MODULE"
-            })
+        createModule: (courseId) => {
+            moduleService.createModuleForCourse(courseId, {title: "New Module"})
+                .then(theActualModule => dispatch({
+                    type: "CREATE_MODULE",
+                    module: theActualModule
+                }))
         },
         deleteModule: (item) => {
-            dispatch({
-                type: "DELETE_MODULE",
-                moduleToDelete: item
-            })
+            moduleService.deleteModule(item._id)
+                .then(status => dispatch({
+                    type: "DELETE_MODULE",
+                    moduleToDelete: item
+                }))
+
         },
         updateModule: (item) => {
-            dispatch({
-                type: "UPDATE_MODULE",
-                moduleToUpdate: item
-            })
+            moduleService.updateModule(item._id, item)
+                .then(status => dispatch({
+                    type: "UPDATE_MODULE",
+                    moduleToUpdate: item
+                }))
+
+        },
+        findModulesForCourse: (courseId) => {
+            moduleService.findModulesForCourse(courseId)
+                .then(theModules => dispatch({
+                    type: "FIND_MODULES_FOR_COURSE",
+                    modules: theModules
+                }))
         }
     }
 }
