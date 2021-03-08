@@ -5,6 +5,9 @@ export const findModulesForCourse = (courseId) =>
     fetch(`${COURSES_URL}/${courseId}/modules`)
         .then(response => response.json())
 
+export const findModule = (moduleId) => {
+}
+
 export const createModuleForCourse = (courseId, module) =>
     fetch(`${COURSES_URL}/${courseId}/modules`, {
         method: "POST",
