@@ -48,7 +48,7 @@ const CourseCard = ({updateCourse, deleteCourse, course}) => {
                     </p>
 
                     <span>
-                        <Link to="/courses/editor"
+                        <Link to={`/courses/grid/edit/${course._id}`}
                               className="btn btn-primary btn-block ss-cc-course-button">
                                 {course.title}
                         </Link>
