@@ -1,25 +1,35 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import EditableItem from "../editable-item/editable-item";
 import {useParams} from "react-router-dom";
 import {connect} from 'react-redux'
-import topicService from '../../services/topic-service'
+import topicService, {updateTopic} from '../../services/topic-service'
 
 const TopicPills = ({
                         topics = [],
-                        createTopic
+                        createTopic,
+                        findTopicsForLesson,
+                        updateTopic,
+                        deleteTopic
                     }) => {
 
     const {layout, courseId, moduleId, lessonId, topicId} = useParams();
+    useEffect(() => {
+        findTopicsForLesson(lessonId)
+    }, [lessonId])
 
     return (
         <div>
             <ul className="nav nav-pills ss-topics-nav">
                 {
                     topics.map(topic =>
-                        <li className="nav-item ss-topics-nav-item">
+                        <li className="nav-item ss-topics-nav-item"
+                            key={topic._id}>
                             <EditableItem
+                                key={topic._id}
                                 to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
                                 item={topic}
+                                updateItem={updateTopic}
+                                deleteItem={deleteTopic}
                                 active={topic._id === topicId}/>
                         </li>
                     )
@@ -54,18 +64,21 @@ const dtpm = (dispatch) => {
         findTopicsForLesson: (lessonId) => {
             topicService.findTopicsForLesson(lessonId)
                 .then(theTopics => dispatch({
+                    type: "FIND_TOPICS_FOR_LESSON",
                     topics: theTopics
                 }))
         },
         updateTopic: (item) => {
             topicService.updateTopic(item._id, item)
                 .then(status => dispatch({
+                    type: "UPDATE_TOPIC",
                     topicToUpdate: item
                 }))
         },
         deleteTopic: (item) => {
             topicService.deleteTopic(item._id)
                 .then(status => dispatch({
+                    type: "DELETE_TOPIC",
                     topicToDelete: item
                 }))
         }

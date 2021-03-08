@@ -5,7 +5,7 @@ const EditableItem = (
     {
         to,
         updateItem,
-        deleteItem = () => alert("delete 123"),
+        deleteItem,
         item = {title: "Some title", _id: "ABC"},
         active
     }) => {
@@ -21,7 +21,7 @@ const EditableItem = (
                     <Link to={to} className={`nav-link ${active ? 'active' : ''}`}>
                         {item.title}
                     </Link>
-                    <i onClick={() => setEditing(true)} className="fas fa-edit float-right"/>
+                    <i onClick={() => setEditing(true)} className="fas fa-edit pull-right"/>
                 </>
             }
             {

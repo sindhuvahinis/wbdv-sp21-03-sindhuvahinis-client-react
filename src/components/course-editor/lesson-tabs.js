@@ -5,14 +5,7 @@ import {useParams} from "react-router-dom";
 import lessonService from "../../services/lesson-service"
 
 const LessonTabs = ({
-                        lessons = [
-                            {_id: "123", title: "Lesson 1"},
-                            {_id: "124", title: "Lesson B"},
-                            {_id: "125", title: "Lesson C"},
-                            {_id: "126", title: "Lesson D"},
-                            {_id: "127", title: "Lesson E"},
-                            {_id: "128", title: "Lesson F"},
-                        ],
+                        lessons = [],
                         findLessonsForModule,
                         createLessonForModule,
                         updateLesson,
@@ -29,8 +22,10 @@ const LessonTabs = ({
             {
                 lessons.map(
                     (lesson) =>
-                        <li className="nav-item">
+                        <li className="nav-item"
+                            key={lesson._id}>
                             <EditableItem
+                                key={lesson._id}
                                 to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                 item={lesson}
                                 updateItem={updateLesson}

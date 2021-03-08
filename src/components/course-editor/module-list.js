@@ -22,8 +22,10 @@ const ModuleList = (
         <ul className="list-group ss-module-list-group">
             {
                 myModules.map(module =>
-                    <li className={`list-group-item ${module._id === moduleId ? 'active' : ''}  ss-module-list-group-item`}>
+                    <li className={`list-group-item ${module._id === moduleId ? 'active' : ''}  ss-module-list-group-item`}
+                        key={module._id}>
                         <EditableItem
+                            key={module._id}
                             to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                             updateItem={updateModule}
                             deleteItem={deleteModule}
