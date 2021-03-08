@@ -2,14 +2,14 @@ import React from 'react'
 import {Link} from "react-router-dom";
 import './course-editor.css'
 
-import moduleReducer from "../../reducers/modules-reducer";
+import moduleReducer from "../../reducers/module-reducer";
 import lessonReducer from "../../reducers/lesson-reducer";
 
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux"
 
-import ModuleList from "../module-list/module-list";
-import LessonTabs from "../../lesson-tabs/lesson-tabs";
+import ModuleList from "./module-list";
+import LessonTabs from "./lesson-tabs";
 import {useParams} from "react-router-dom";
 
 
