@@ -14,7 +14,9 @@ const LessonTabs = ({
                             {_id: "128", title: "Lesson F"},
                         ],
                         findLessonsForModule,
-                        createLessonForModule
+                        createLessonForModule,
+                        updateLesson,
+                        deleteLesson
                     }) => {
 
     const {courseId, moduleId} = useParams();
@@ -30,7 +32,10 @@ const LessonTabs = ({
                         <li className="nav-item">
                             <EditableItem
                                 to={`/courses/editor/${courseId}/${moduleId}/${lesson._id}`}
-                                item={lesson}/>
+                                item={lesson}
+                                updateItem={updateLesson}
+                                deleteItem={deleteLesson}
+                            />
                         </li>
                 )
             }
@@ -61,6 +66,20 @@ const dtpm = (dispatch) => ({
             .then(theLesson => dispatch({
                 type: "CREATE_LESSON",
                 lesson: theLesson
+            }))
+    },
+    updateLesson: (item) => {
+        lessonService.updateLesson(item._id, item)
+            .then(theLesson => dispatch({
+                type: "UPDATE_LESSON",
+                lessonToBeUpdated: theLesson
+            }))
+    },
+    deleteLesson: (item) => {
+        lessonService.deleteLesson(item._id)
+            .then(status => dispatch({
+                type: "DELETE_LESSON",
+                lessonToDelete: item
             }))
     }
 })
