@@ -19,7 +19,7 @@ const LessonTabs = ({
                         deleteLesson
                     }) => {
 
-    const {courseId, moduleId, lessonId} = useParams();
+    const {layout, courseId, moduleId, lessonId} = useParams();
     useEffect(() => {
         findLessonsForModule(moduleId)
     }, [moduleId])
@@ -31,7 +31,7 @@ const LessonTabs = ({
                     (lesson) =>
                         <li className="nav-item">
                             <EditableItem
-                                to={`/courses/editor/${courseId}/${moduleId}/${lesson._id}`}
+                                to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                 item={lesson}
                                 updateItem={updateLesson}
                                 deleteItem={deleteLesson}

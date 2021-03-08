@@ -23,8 +23,6 @@ const store = createStore(reducer)
 
 const CourseEditor = ({props}) => {
 
-    const {courseId, moduleId} = useParams();
-
     return (
         <Provider store={store}>
             <div className="container">

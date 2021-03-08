@@ -90,10 +90,10 @@ class CourseManager extends React.Component {
                     <Route path="/courses/grid"
                            render={() => <Stickyheader handleChange={this.handleChange}
                                                        handleAddCourse={this.handleAddCourse}/>}/>
-                    <Route path="/courses/editor" component={StickyHeaderWithoutAddCourse}/>
+                    <Route path="/courses/:layout/edit/" component={StickyHeaderWithoutAddCourse}/>
                 </Switch>
                 <div className="container-fluid">
-                    <Route path="/courses/table">
+                    <Route path="/courses/table" exact={true}>
                         <CourseTable
                             updateCourse={this.updateCourse}
                             deleteCourse={this.deleteCourse}
@@ -101,16 +101,16 @@ class CourseManager extends React.Component {
                         />
                     </Route>
 
-                    <Route path="/courses/grid">
+                    <Route path="/courses/grid" exact={true}>
                         <CourseGrid
                             updateCourse={this.updateCourse}
                             deleteCourse={this.deleteCourse}
                             courses={this.state.courses}/>
                     </Route>
 
-                    <Route path={["/courses/editor/:courseId",
-                                  "/courses/editor/:courseId/:moduleId",
-                                  "/courses/editor/:courseId/:moduleId/:lessonId"]}
+                    <Route path={["/courses/:layout/edit/:courseId",
+                                  "/courses/:layout/edit/:courseId/modules/:moduleId",
+                                  "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId"]}
                            exact={true}
                            render={(props) =>
                                <CourseEditor props={props}/>
@@ -123,7 +123,7 @@ class CourseManager extends React.Component {
                         handleAddCourse={this.handleAddCourse}/>}/>
                     <Route path="/courses/grid" render={() => <FloatingPlusIcon
                         handleAddCourse={this.handleAddCourse}/>}/>
-                    <Route path="/courses/editor"/>
+                    <Route path="/courses/:layout/edit/"/>
                 </Switch>
 
             </div>
