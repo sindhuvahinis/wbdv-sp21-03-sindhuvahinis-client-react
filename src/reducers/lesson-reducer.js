@@ -10,7 +10,24 @@ const initialState = {
 }
 
 const lessonReducer = (state = initialState, action) => {
-    return state
+    switch (action.type) {
+        case "CREATE_LESSON":
+            return {
+                ...state,
+                lessons: [
+                    ...state.lessons,
+                    action.lesson
+                ]
+            }
+
+        case "FIND_LESSONS":
+            return {
+                ...state,
+                lessons: action.lessons
+            }
+        default:
+            return state
+    }
 }
 
 export default lessonReducer

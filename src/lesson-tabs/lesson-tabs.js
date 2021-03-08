@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from "../components/editable-item/editable-item";
 import {useParams} from "react-router-dom";
+import lessonService from "../services/lesson-service"
 
 const LessonTabs = ({
                         lessons = [
@@ -11,10 +12,15 @@ const LessonTabs = ({
                             {_id: "126", title: "Lesson D"},
                             {_id: "127", title: "Lesson E"},
                             {_id: "128", title: "Lesson F"},
-                        ]
+                        ],
+                        findLessonsForModule,
+                        createLessonForModule
                     }) => {
 
     const {courseId, moduleId} = useParams();
+    useEffect(() => {
+        findLessonsForModule(moduleId)
+    }, [moduleId])
 
     return (<div>
         <ul className="nav nav-tabs">
@@ -29,9 +35,9 @@ const LessonTabs = ({
                 )
             }
             <li className="nav-item">
-                <a className="nav-link disabled" href="#" tabIndex="-1"
-                   aria-disabled="true">
-                    <i className="fas fa-plus-circle fa-lg ss-plus-icon"/>
+                <a className="nav-link" href="#" tabIndex="-1">
+                    <i className="fas fa-plus-circle fa-2x ss-plus-icon float-right"
+                       onClick={() => createLessonForModule(moduleId)}/>
                 </a>
             </li>
         </ul>
@@ -42,6 +48,21 @@ const stpm = (state) => ({
     lessons: state.lessonReducer.lessons,
 })
 
-const dtpm = (dispatch) => ({})
+const dtpm = (dispatch) => ({
+    findLessonsForModule: (moduleId) => {
+        lessonService.findLessonsForModule(moduleId)
+            .then(theLessons => dispatch({
+                type: "FIND_LESSONS",
+                lessons: theLessons
+            }))
+    },
+    createLessonForModule: (moduleId) => {
+        lessonService.createLessonForModule(moduleId, {title: "New Lesson"})
+            .then(theLesson => dispatch({
+                type: "CREATE_LESSON",
+                lesson: theLesson
+            }))
+    }
+})
 
 export default connect(stpm, dtpm)(LessonTabs)

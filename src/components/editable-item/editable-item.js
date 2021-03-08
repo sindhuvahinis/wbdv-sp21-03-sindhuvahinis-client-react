@@ -20,7 +20,7 @@ const EditableItem = (
                     <Link to={to} className="nav-link">
                         {item.title}
                     </Link>
-                    <i onClick={() => setEditing(true)} className="fas fa-edit"/>
+                    <i onClick={() => setEditing(true)} className="fas fa-edit float-right"/>
                 </>
             }
             {
