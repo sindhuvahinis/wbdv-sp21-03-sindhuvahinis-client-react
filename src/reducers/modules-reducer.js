@@ -6,23 +6,21 @@ const initialState = {
 const moduleReducer = (state = initialState, action) => {
     switch (action.type) {
         case "FIND_MODULES_FOR_COURSE":
-            const newStateFindModules = {
+            return {
                 ...state,
                 modules: action.modules
             }
-            return newStateFindModules
 
         case "CREATE_MODULE":
-            const newState = {
+            return {
                 modules: [
                     ...state.modules,
                     action.module
                 ]
             }
-            return newState
 
         case "DELETE_MODULE":
-            const newStateDelete = {
+            return {
                 modules: state.modules.filter(module => {
                     if (module._id === action.moduleToDelete._id) {
                         return false;
@@ -31,7 +29,6 @@ const moduleReducer = (state = initialState, action) => {
                     }
                 })
             }
-            return newStateDelete
 
         case "UPDATE_MODULE":
             return {
