@@ -70,15 +70,15 @@ ul.ss-module-list-group {
 }
 
 .ss-module-list-group-item {
-    float: left;
     border: 0;
-    margin: 0;
-    padding: 10px 0;
-    background-color: #373b3e;
+    margin: 10px 10px 10px 10px;
+    background-color: #4c5154;
+    border-radius: 7px;
 }
 
 .ss-module-list-group-item.active {
-    background-color: #373b3e;
+    background-color: #aaaaaa;
+    margin-top: 10px !important;
 }
 
 .ss-module-link.active {

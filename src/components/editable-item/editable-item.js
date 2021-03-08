@@ -26,7 +26,7 @@ const EditableItem = (
             {
                 editing &&
                 <>
-                    <input value={cachedItem.title} onChange={(event) => setCachedItem({
+                    <input className="form-control" value={cachedItem.title} onChange={(event) => setCachedItem({
                         ...cachedItem,
                         title: event.target.value
                     })}/>

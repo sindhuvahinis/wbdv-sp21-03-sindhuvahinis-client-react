@@ -1,13 +1,5 @@
 const initialState = {
-    modules: [
-        {_id: 123, title: "Module 1"},
-        {_id: 124, title: "Module 2"},
-        {_id: 125, title: "Module 3"},
-        {_id: 126, title: "Module 4"},
-        {_id: 127, title: "Module 5"},
-        {_id: 128, title: "Module 6"},
-        {_id: 129, title: "Module 7"},
-    ]
+    modules: []
 }
 
 
