@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import EditableItem from "../editable-item/editable-item";
 import {useParams} from "react-router-dom";
 import {connect} from 'react-redux'
-import topicService, {updateTopic} from '../../services/topic-service'
+import topicService from '../../services/topic-service'
 
 const TopicPills = ({
                         topics = [],
