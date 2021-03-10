@@ -18,29 +18,29 @@ const LessonTabs = ({
     }, [moduleId])
 
     return (<div>
-        <ul className="nav nav-pills">
+        <ul className="nav nav-tabs ss-lesson-tab">
             {
-                lessons.map(
-                    (lesson) =>
-                        <li className="nav-item"
-                            key={lesson._id}>
-                            <EditableItem
-                                key={lesson._id}
-                                to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
-                                item={lesson}
-                                updateItem={updateLesson}
-                                deleteItem={deleteLesson}
-                                active={lesson._id === lessonId}
-                            />
-                        </li>
+                lessons.map(lesson =>
+                    <li className="nav-item ss-lesson-nav-item"
+                        key={lesson._id}>
+                        <EditableItem
+                            key={lesson._id}
+                            to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
+                            item={lesson}
+                            updateItem={updateLesson}
+                            deleteItem={deleteLesson}
+                            active={lesson._id === lessonId}
+                        />
+                    </li>
                 )
             }
             <li className="nav-item">
-                <a className="nav-link" href="#" tabIndex="-1">
-                    <i className="fas fa-plus-circle fa-2x ss-plus-icon float-right"
+                <a href="#" tabIndex="-1">
+                    <i className="fas fa-plus-circle fa-2x ss-plus-icon ss-lesson-plus-icon float-right"
                        onClick={() => createLessonForModule(moduleId)}/>
                 </a>
             </li>
+
         </ul>
     </div>)
 }

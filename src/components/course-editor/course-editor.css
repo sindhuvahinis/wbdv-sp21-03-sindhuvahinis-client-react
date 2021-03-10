@@ -107,10 +107,19 @@ ul.ss-module-list-group {
     color: #f9fdfd;
 }
 
+.ss-lesson-plus-icon {
+    vertical-align: center;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
 .ss-module-plus-icon {
     padding: 10px;
     margin-left: 20px;
-    margin-right: 20px;
+}
+
+.ss-module-plus-icon-list {
+    background-color: #373b3e !important;
 }
 
 .ss-module-link {
@@ -123,6 +132,11 @@ ul.ss-module-list-group {
     margin-right: 20px;
 }
 
+.ss-lesson-nav-item {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
 .ss-topics-nav-item {
     background-color: #7a7a7a;
     margin-left: 10px;
@@ -131,4 +145,23 @@ ul.ss-module-list-group {
 
 .ss-topics-nav .ss-topics-nav-item-link.active{
     background-color: #484848;
+}
+
+.ss-item-edit-icon {
+    vertical-align: center;
+    margin-top: 3px;
+    padding-left: 10px;
+}
+
+.ss-ie-times-icon {
+    margin-top: 5px;
+    padding-left: 10px;
+    color: red;
+}
+
+.ss-ie-check-icon {
+    color: green;
+    margin-top: 5px;
+    margin-right: 5px;
+    padding-left: 10px;
 }

@@ -84,14 +84,16 @@ class CourseManager extends React.Component {
         return (
             <div>
                 <Switch>
-                    <Route path="/courses/table"
+                    <Route path="/courses/table" exact={true}
                            render={() => <Stickyheader handleChange={this.handleChange}
                                                        handleAddCourse={this.handleAddCourse}/>}/>
-                    <Route path="/courses/grid"
+                    <Route path="/courses/grid" exact={true}
                            render={() => <Stickyheader handleChange={this.handleChange}
                                                        handleAddCourse={this.handleAddCourse}/>}/>
-                    <Route path="/courses/:layout/edit/" component={StickyHeaderWithoutAddCourse}/>
+                    <Route path="/courses/:layout/edit"
+                           component={StickyHeaderWithoutAddCourse}/>
                 </Switch>
+
                 <div className="container-fluid">
                     <Route path="/courses/table" exact={true}>
                         <CourseTable
@@ -109,8 +111,8 @@ class CourseManager extends React.Component {
                     </Route>
 
                     <Route path={["/courses/:layout/edit/:courseId",
-                                  "/courses/:layout/edit/:courseId/modules/:moduleId",
-                                  "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
                         "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"]}
                            exact={true}
                            render={(props) =>
@@ -120,9 +122,9 @@ class CourseManager extends React.Component {
                 </div>
 
                 <Switch>
-                    <Route path="/courses/table" render={() => <FloatingPlusIcon
+                    <Route path="/courses/table" exact={true} render={() => <FloatingPlusIcon
                         handleAddCourse={this.handleAddCourse}/>}/>
-                    <Route path="/courses/grid" render={() => <FloatingPlusIcon
+                    <Route path="/courses/grid" exact={true} render={() => <FloatingPlusIcon
                         handleAddCourse={this.handleAddCourse}/>}/>
                     <Route path="/courses/:layout/edit/"/>
                 </Switch>

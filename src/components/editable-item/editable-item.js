@@ -17,25 +17,27 @@ const EditableItem = (
         <>
             {
                 !editing &&
-                <>
-                    <Link to={to} className={`nav-link ${active ? 'active' : ''}`}>
+                <span className={`btn-block nav-link ${active ? 'active' : ''}`}>
+                    <Link to={to}>
                         {item.title}
                     </Link>
-                    <i onClick={() => setEditing(true)} className="fas fa-edit pull-right"/>
-                </>
+                    <i onClick={() => setEditing(true)}
+                       className="fas fa-edit float-right ss-item-edit-icon"/>
+                </span>
             }
             {
                 editing &&
                 <>
-                    <input className="form-control" value={cachedItem.title} onChange={(event) => setCachedItem({
-                        ...cachedItem,
-                        title: event.target.value
-                    })}/>
+                    <input value={cachedItem.title}
+                           onChange={(event) => setCachedItem({
+                               ...cachedItem,
+                               title: event.target.value
+                           })}/>
                     <i onClick={() => {
                         setEditing(false)
                         updateItem(cachedItem)
-                    }} className="fas fa-check"/>
-                    <i onClick={() => deleteItem(item)} className="fas fa-times"/>
+                    }} className="fas fa-check ss-ie-check-icon float-right"/>
+                    <i onClick={() => deleteItem(item)} className="fas fa-times ss-ie-times-icon float-right"/>
                 </>
             }
 

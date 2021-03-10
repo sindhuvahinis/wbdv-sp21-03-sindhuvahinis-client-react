@@ -35,7 +35,7 @@ const ModuleList = (
                 )
             }
 
-            <li className="list-group-item ss-module-list-group-item">
+            <li className="list-group-item ss-module-list-group-item ss-module-plus-icon-list">
                 <a href="#">
                     <i onClick={() => createModule(courseId)}
                        className="fa-pull-right fas fa-plus-circle fa-2x ss-plus-icon ss-module-plus-icon ss-link"/>
