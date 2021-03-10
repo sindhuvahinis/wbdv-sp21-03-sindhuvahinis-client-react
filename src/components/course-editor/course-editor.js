@@ -35,7 +35,7 @@ const CourseEditor = ({props}) => {
                     <div className="col-4 ss-module-col ss-brand-title-header">
                     <span className="ss-cancel-icon">
                         <Link to={`/courses/${layout}`}>
-                        <i className="fas fa-window-close fa-lg"/>
+                        <i  className="fas fa-window-close fa-lg"/>
                         </Link>
                     </span>
                         <a className="navbar-brand ss-brand ss-link" href="#">CS5610 - WebDev</a>
