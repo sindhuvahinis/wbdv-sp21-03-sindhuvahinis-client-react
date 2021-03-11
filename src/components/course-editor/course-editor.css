@@ -147,7 +147,7 @@ ul.ss-module-list-group {
     background-color: #484848;
 }
 
-.ss-item-edit-icon {
+.ss-ie-edit-icon {
     vertical-align: center;
     margin-top: 3px;
     padding-left: 10px;
@@ -164,4 +164,8 @@ ul.ss-module-list-group {
     margin-top: 5px;
     margin-right: 5px;
     padding-left: 10px;
+}
+
+.ss-ie-title {
+    color: black;
 }

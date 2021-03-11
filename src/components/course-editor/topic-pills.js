@@ -35,12 +35,15 @@ const TopicPills = ({
                     )
                 }
 
-                <li className="nav-item ss-topics-nav-item">
-                    <a className="nav-link ss-link" href="#" tabIndex="-1">
-                        <i onClick={() => createTopic(lessonId)}
-                           className="fas fa-plus fa-lg ss-plus-icon"/>
-                    </a>
-                </li>
+                {
+                    lessonId !== undefined &&
+                    <li className="nav-item ss-topics-nav-item">
+                        <a className="nav-link ss-link" href="#" tabIndex="-1">
+                            <i onClick={() => createTopic(lessonId)}
+                               className="fas fa-plus fa-lg ss-plus-icon"/>
+                        </a>
+                    </li>
+                }
             </ul>
         </div>
     )

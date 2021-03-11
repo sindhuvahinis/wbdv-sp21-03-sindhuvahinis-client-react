@@ -19,10 +19,12 @@ const EditableItem = (
                 !editing &&
                 <span className={`btn-block nav-link ${active ? 'active' : ''}`}>
                     <Link to={to}>
-                        {item.title}
+                        <span className="ss-ie-title">
+                            {item.title}
+                        </span>
                     </Link>
                     <i onClick={() => setEditing(true)}
-                       className="fas fa-edit float-right ss-item-edit-icon"/>
+                       className="fas fa-edit float-right ss-ie-edit-icon"/>
                 </span>
             }
             {
@@ -37,7 +39,8 @@ const EditableItem = (
                         setEditing(false)
                         updateItem(cachedItem)
                     }} className="fas fa-check ss-ie-check-icon float-right"/>
-                    <i onClick={() => deleteItem(item)} className="fas fa-times ss-ie-times-icon float-right"/>
+                    <i onClick={() => deleteItem(item)}
+                       className="fas fa-times ss-ie-times-icon float-right"/>
                 </>
             }
 

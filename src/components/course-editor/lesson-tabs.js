@@ -34,12 +34,15 @@ const LessonTabs = ({
                     </li>
                 )
             }
-            <li className="nav-item">
-                <a href="#" tabIndex="-1">
-                    <i className="fas fa-plus-circle fa-2x ss-plus-icon ss-lesson-plus-icon float-right"
-                       onClick={() => createLessonForModule(moduleId)}/>
-                </a>
-            </li>
+            {
+                moduleId !== undefined &&
+                <li className="nav-item">
+                    <a href="#" tabIndex="-1">
+                        <i className="fas fa-plus-circle fa-2x ss-plus-icon ss-lesson-plus-icon float-right"
+                           onClick={() => createLessonForModule(moduleId)}/>
+                    </a>
+                </li>
+            }
 
         </ul>
     </div>)
