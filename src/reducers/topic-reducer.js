@@ -38,6 +38,7 @@ const topicReducer = (state = initialState, action) => {
                 })
             }
         case "FIND_TOPIC":
+            return state
         default:
             return state
     }
