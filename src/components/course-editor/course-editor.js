@@ -14,6 +14,7 @@ import TopicPills from "./topic-pills"
 import {useParams} from "react-router-dom";
 import topicReducer from "../../reducers/topic-reducer";
 import courseService from "../../services/course-service";
+import WidgetList from "./widgets/widget-list";
 
 
 // combine reducers using map
@@ -51,12 +52,13 @@ const CourseEditor = ({props}) => {
                     </div>
                 </div>
                 <div className="row h-100">
-                    <div className="col-4 no-float ss-module-col ss-module-list-col">
+                    <div className="col-3 no-float ss-module-col ss-module-list-col">
                         <ModuleList/>
                     </div>
-                    <div className="col-8">
+                    <div className="col-9">
                         <LessonTabs/>
                         <TopicPills/>
+                        <WidgetList/>
                     </div>
 
 
