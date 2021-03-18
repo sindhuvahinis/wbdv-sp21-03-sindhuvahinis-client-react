@@ -90,8 +90,7 @@ class CourseManager extends React.Component {
                     <Route path="/courses/grid" exact={true}
                            render={() => <Stickyheader handleChange={this.handleChange}
                                                        handleAddCourse={this.handleAddCourse}/>}/>
-                    <Route path="/courses/:layout/edit"
-                           component={StickyHeaderWithoutAddCourse}/>
+                    <Route path="/courses/:layout/edit"/>
                 </Switch>
 
                 <div className="container-fluid">
