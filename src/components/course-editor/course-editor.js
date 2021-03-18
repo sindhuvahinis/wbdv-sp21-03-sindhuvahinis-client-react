@@ -40,7 +40,7 @@ const CourseEditor = ({props}) => {
 
     return (
         <Provider store={store}>
-            <div className="container">
+            <div className="container ss-editor-container">
                 <div className="row ss-sticky-header">
                     <div className="col-4 ss-module-col ss-brand-title-header">
                     <span className="ss-cancel-icon">
