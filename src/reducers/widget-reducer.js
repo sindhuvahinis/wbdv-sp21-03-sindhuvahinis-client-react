@@ -13,7 +13,6 @@ const widgetReducer = (state = initialState, action) => {
                 ]
             }
         case "UPDATE_WIDGET":
-            console.log(action.widgetToUpdate.id, ' ', action.widgetToUpdate.size)
             return {
                 ...state,
                 widgets: state.widgets.map(widget =>
