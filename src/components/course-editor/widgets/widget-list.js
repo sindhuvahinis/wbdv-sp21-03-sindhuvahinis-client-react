@@ -74,9 +74,6 @@ const WidgetList = ({
                                     setEditingWidget={setEditingWidget}/>
                             }
                             {
-                                console.log("Type ", editingWidget.type)
-                            }
-                            {
                                 (_widget.id === editingWidget.id ? editingWidget.type === "PARAGRAPH" : _widget.type === "PARAGRAPH") &&
                                 <ParagraphWidget
                                     widget={editingWidget.id === _widget.id ? editingWidget : _widget}
