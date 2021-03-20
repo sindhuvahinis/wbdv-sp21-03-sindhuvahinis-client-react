@@ -15,6 +15,7 @@ import {useParams} from "react-router-dom";
 import topicReducer from "../../reducers/topic-reducer";
 import courseService from "../../services/course-service";
 import WidgetList from "./widgets/widget-list";
+import widgetReducer from "../../reducers/widget-reducer";
 
 
 // combine reducers using map
@@ -23,7 +24,8 @@ const reducer = combineReducers({
     // namespaces
     moduleReducer: moduleReducer,
     lessonReducer: lessonReducer,
-    topicReducer: topicReducer
+    topicReducer: topicReducer,
+    widgetReducer: widgetReducer
 })
 const store = createStore(reducer)
 

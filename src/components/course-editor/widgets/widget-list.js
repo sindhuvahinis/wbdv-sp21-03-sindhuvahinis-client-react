@@ -2,95 +2,63 @@ import React, {useEffect, useState} from "react";
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
 import {useParams} from "react-router-dom";
+import widgetService from "../../../services/widget-service"
+import {connect} from "react-redux";
 
-const WidgetList = () => {
+const WidgetList = ({
+                        widgets = [],
+                        createWidget,
+                        updateWidget,
+                        deleteWidget,
+                        findAllWidgetsForTopic
+                    }) => {
     const {topicId} = useParams()
 
-    //TODO: Move these to widget-reducer.js
-    const [widgets, setWidgets] = useState([]);
     const [editingWidget, setEditingWidget] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:8080/api/topics/${topicId}/widgets`)
-            .then(response => response.json())
-            .then(widgets => setWidgets(widgets))
+        findAllWidgetsForTopic(topicId)
     }, [topicId]);
-
-    const createWidget = () => {
-        // TODO: Move this to widget-service.js
-        fetch(`http://localhost:8080/api/topics/${topicId}/widgets`,
-            {
-                method: 'POST',
-                body: JSON.stringify({type: "HEADING", size: "2", text: "New heading widget"}),
-                headers: {
-                    "content-type": 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(widget => setWidgets((widgets) => [...widgets, widget]))
-    }
-
-    const deleteWidget = (widgetId) => {
-        fetch(`http://localhost:8080/api/widgets/${widgetId}`, {
-            method: 'DELETE'
-        })
-            .then(status => {
-                setWidgets((widgets) => widgets.filter(w => w.id !== widgetId))
-            })
-    }
-
-    const updateWidget = (widgetId, widget) => {
-        fetch(`http://localhost:8080/api/widgets/${widgetId}`, {
-            method: 'PUT',
-            body: JSON.stringify(widget),
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
-            .then(status => {
-                setEditingWidget({})
-                setWidgets((widgets) => widgets.map(w => w.id !== widgetId ? w : widget))
-            })
-    }
 
     return (
         <div>
-            <i onClick={createWidget} className="fas fa-plus float-right fa-2x"/>
+            <i onClick={() => createWidget(topicId)} className="fas fa-plus float-right fa-2x"/>
             <h2>Widget List ({widgets.length}) {editingWidget.id}</h2>
             <ul>
                 {
-                    widgets.map(widget =>
-                        <li key={widget.id} className="list-group-item">
+                    widgets.map(_widget =>
+                        <li key={_widget.id} className="list-group-item">
                             {
-                                editingWidget.id === widget.id &&
+                                editingWidget.id === _widget.id &&
                                 <>
                                     <i onClick={() => {
-                                        updateWidget(widget.id, editingWidget)
+                                        updateWidget(editingWidget)
+                                        setEditingWidget({})
                                     }}
                                        className="fas fa-check float-right fa-2x"/>
                                     <i onClick={() => {
+                                        deleteWidget(_widget.id)
                                         setEditingWidget({})
-                                        deleteWidget(widget.id)
                                     }}
                                        className="fas fa-trash float-right fa-2x"/>
                                 </>
                             }
                             {
-                                editingWidget.id !== widget.id &&
-                                <i onClick={() => setEditingWidget(widget)}
+                                editingWidget.id !== _widget.id &&
+                                <i onClick={() => setEditingWidget(_widget)}
                                    className="fas fa-2x fa-cog float-right"/>
                             }
                             {
-                                widget.type === "HEADING" &&
+                                _widget.type === "HEADING" &&
                                 <HeadingWidget
-                                    widget={editingWidget.id === widget.id ? editingWidget : widget}
-                                    editing={editingWidget.id === widget.id}
+                                    widget={editingWidget.id === _widget.id ? editingWidget : _widget}
+                                    editing={editingWidget.id === _widget.id}
                                     setEditingWidget={setEditingWidget}/>
                             }
                             {
-                                widget.type === "PARAGRAPH" &&
-                                <ParagraphWidget widget={widget}
-                                                 editing={editingWidget.id === widget.id}/>
+                                _widget.type === "PARAGRAPH" &&
+                                <ParagraphWidget widget={_widget}
+                                                 editing={editingWidget.id === _widget.id}/>
                             }
                         </li>
                     )
@@ -100,4 +68,49 @@ const WidgetList = () => {
     )
 }
 
-export default WidgetList
+const stpm = (state) => {
+    return {
+        widgets: state.widgetReducer.widgets
+    }
+}
+
+const dtpm = (dispatch) => {
+    return {
+        createWidget: (topicId) => {
+            widgetService.createWidget(topicId,
+                {type: "HEADING", size: "1", text: "New heading widget"})
+                .then(widget => dispatch({
+                    type: "CREATE_WIDGET",
+                    widget: widget
+                }))
+        },
+        updateWidget: (widget) => {
+            widgetService.updateWidget(widget.id, widget)
+                .then(status => dispatch({
+                    type: "UPDATE_WIDGET",
+                    widgetToUpdate: widget
+                }))
+        },
+        deleteWidget: (widget) => {
+            widgetService.deleteWidget(widget.id)
+                .then(status => dispatch({
+                    type: "DELETE_WIDGET",
+                    widgetToDelete: widget
+                }))
+        },
+        findAllWidgetsForTopic: (topicId) => {
+            widgetService.findWidgetsFromTopic(topicId)
+                .then(theWidgets => dispatch({
+                    type: "FIND_ALL_WIDGETS_FOR_TOPIC",
+                    widgets: theWidgets
+                }))
+        },
+        findWidget: () => {
+
+        },
+        findAllWidgets: () => {
+        }
+    }
+}
+
+export default connect(stpm, dtpm)(WidgetList)
