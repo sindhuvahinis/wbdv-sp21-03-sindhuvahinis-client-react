@@ -14,10 +14,10 @@ const HeadingWidget = ({widget, editing, setEditingWidget}) => {
                                 text: event.target.value
                             })
                         }}
-                        value={widget.text} className="form-control"/>
+                        value={widget.text} className="form-control ss-widget-form ss-heading-input"/>
 
                     <select value={widget.size}
-                            className="form-control"
+                            className="form-control ss-widget-form ss-heading-select"
                             onChange={(event) => {
                                 setEditingWidget({
                                     ...widget,

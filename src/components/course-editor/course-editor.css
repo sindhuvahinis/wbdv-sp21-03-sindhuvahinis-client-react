@@ -90,7 +90,7 @@ ul.ss-module-list-group {
     color: #d9d9d9;
 }
 
-.ss-link:hover  {
+.ss-link:hover {
     color: #ffffff;
     text-decoration: none;
 }
@@ -143,7 +143,7 @@ ul.ss-module-list-group {
     border-radius: 5px;
 }
 
-.ss-topics-nav .ss-topics-nav-item-link.active{
+.ss-topics-nav .ss-topics-nav-item-link.active {
     background-color: #484848;
 }
 
@@ -168,4 +168,33 @@ ul.ss-module-list-group {
 
 .ss-ie-title {
     color: black;
+}
+
+.ss-widget-list-group {
+    padding-left: 10px;
+    padding-top: 20px;
+    margin-right: 20px;
+}
+
+.ss-widget-form {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.ss-widget-form .clear {
+    clear: both;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.fa-widget-add-icon {
+    margin-right: 30px;
 }
