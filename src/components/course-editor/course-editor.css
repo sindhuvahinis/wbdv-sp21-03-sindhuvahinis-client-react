@@ -219,3 +219,25 @@ li.list-group-item.ss-module-list-group-item:hover {
 .ss-module-list-group-item.active {
     color: black;
 }
+
+.ss-widget-cog-icon:hover {
+    color: purple;
+}
+
+.ss-widget-check-icon {
+    margin: 10px 0 20px 10px;
+    color: darkgreen;
+}
+
+.ss-widget-check-icon:hover {
+    color: green;
+}
+
+.ss-widget-trash-icon {
+    margin: 10px 0 20px 10px;
+    color: darkred;
+}
+
+.ss-widget-trash-icon:hover {
+    color: red;
+}

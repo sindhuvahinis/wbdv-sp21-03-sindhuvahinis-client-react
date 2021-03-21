@@ -40,12 +40,12 @@ const WidgetList = ({
                                             updateWidget(editingWidget)
                                             setEditingWidget({})
                                         }}
-                                           className="fas fa-check float-right fa-lg"/>
+                                           className="fas fa-check ss-widget-check-icon float-right fa-lg"/>
                                         <i onClick={() => {
                                             deleteWidget(_widget.id)
                                             setEditingWidget({})
                                         }}
-                                           className="fas fa-trash float-right fa-lg"/>
+                                           className="fas fa-trash ss-widget-trash-icon float-right fa-lg"/>
                                     </>
                                 }
                                 {
@@ -70,7 +70,7 @@ const WidgetList = ({
                                 {
                                     editingWidget.id !== _widget.id &&
                                     <i onClick={() => setEditingWidget(_widget)}
-                                       className="fas fa-lg fa-cog float-right"/>
+                                       className="fas fa-lg fa-cog ss-widget-cog-icon float-right"/>
                                 }
                                 {
                                     (_widget.id === editingWidget.id ? editingWidget.type === "HEADING" : _widget.type === "HEADING") &&
