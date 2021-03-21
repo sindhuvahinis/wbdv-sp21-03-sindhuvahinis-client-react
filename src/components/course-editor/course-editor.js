@@ -45,11 +45,11 @@ const CourseEditor = ({props}) => {
             <div className="container ss-editor-container">
                 <div className="row ss-sticky-header">
                     <div className="col-4 ss-module-col ss-brand-title-header">
-                    <span className="ss-cancel-icon">
-                        <Link to={`/courses/${layout}`}>
-                        <i className="fas fa-window-close fa-lg"/>
-                        </Link>
-                    </span>
+                        <span>
+                            <Link to={`/courses/${layout}`} className="ss-cancel-icon">
+                            <i className="fas fa-window-close fa-lg"/>
+                            </Link>
+                        </span>
                         <a className="navbar-brand ss-brand ss-link" href="#">{courseTitle}</a>
                     </div>
                 </div>

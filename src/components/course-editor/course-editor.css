@@ -29,7 +29,7 @@
 }
 
 .ss-brand-title-header a.ss-brand:hover {
-    color: #f9fdfd;
+    color: white;
 }
 
 .ss-cancel-icon {
@@ -39,7 +39,7 @@
 }
 
 .ss-brand-title-header a.ss-cancel-icon:hover {
-    color: #f9fdfd;
+    color: white;
 }
 
 .ss-nav-pills a {
@@ -77,7 +77,7 @@ ul.ss-module-list-group {
 }
 
 .ss-module-list-group-item.active {
-    background-color: #aaaaaa;
+    background-color: #E0E0E0;
     margin-top: 10px !important;
 }
 
@@ -153,6 +153,10 @@ ul.ss-module-list-group {
     padding-left: 10px;
 }
 
+.ss-ie-edit-icon:hover {
+    color: red;
+}
+
 .ss-ie-times-icon {
     margin-top: 5px;
     padding-left: 10px;
@@ -197,4 +201,20 @@ ul.ss-module-list-group {
 
 .fa-widget-add-icon {
     margin-right: 30px;
+}
+
+li.list-group-item.ss-module-list-group-item:hover {
+    background-color: #aaaaaa;
+}
+
+.ss-lesson-nav-item:hover {
+    background-color: #EEEEEE;
+}
+
+.ss-topics-nav .nav-link.active {
+    background-color: #9E9E9E;
+}
+
+.ss-module-list-group-item.active {
+    color: black;
 }
