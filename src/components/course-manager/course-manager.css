@@ -31,6 +31,10 @@
     padding-top: 5px;
 }
 
+.ss-plus-icon:hover {
+    color: red;
+}
+
 .ss-dashboard-title {
     padding-left: 15px;
 }

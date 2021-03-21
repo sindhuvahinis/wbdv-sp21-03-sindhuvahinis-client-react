@@ -103,9 +103,6 @@ ul.ss-module-list-group {
     color: #990000;
 }
 
-.ss-plus-icon {
-    color: #f9fdfd;
-}
 
 .ss-lesson-plus-icon {
     vertical-align: center;
@@ -175,7 +172,7 @@ ul.ss-module-list-group {
 }
 
 .ss-widget-list-group {
-    padding-left: 10px;
+    padding-left: 20px;
     padding-top: 20px;
     margin-right: 20px;
 }
@@ -200,7 +197,7 @@ ul.ss-module-list-group {
 }
 
 .fa-widget-add-icon {
-    margin-right: 30px;
+    margin-right: 35px;
 }
 
 li.list-group-item.ss-module-list-group-item:hover {
@@ -213,6 +210,10 @@ li.list-group-item.ss-module-list-group-item:hover {
 
 .ss-topics-nav .nav-link.active {
     background-color: #9E9E9E;
+}
+
+.ss-topics-nav .nav-link:hover {
+    background-color: #616161;
 }
 
 .ss-module-list-group-item.active {

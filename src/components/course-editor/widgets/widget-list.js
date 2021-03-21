@@ -25,7 +25,7 @@ const WidgetList = ({
             {
                 topicId !== undefined &&
                 <i onClick={() => createWidget(topicId)}
-                   className="fas fa-plus fa-2x float-right fa-widget-add-icon"/>
+                   className="fas fa-plus-circle fa-2x float-right fa-widget-add-icon ss-plus-icon"/>
             }
             <div className="clear"/>
             <div>
