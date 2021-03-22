@@ -35,6 +35,20 @@ const findWidgetsFromTopic = (topicId) =>
     })
         .then(response => response.json())
 
+const findAllWidgets = () => {
+    fetch(`${WIDGET_API}/widgets`, {
+        method: 'GET'
+    })
+        .then(response => response.json())
+}
+
+const findWidgetById = (widgetId) => {
+    fetch(`${WIDGET_API}/widgets/${widgetId}`, {
+        method: 'GET'
+    })
+        .then(response => response.json())
+}
+
 export default {
     createWidget,
     deleteWidget,
