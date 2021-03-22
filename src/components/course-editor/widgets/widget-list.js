@@ -42,7 +42,7 @@ const WidgetList = ({
                                         }}
                                            className="fas fa-check ss-widget-check-icon float-right fa-lg"/>
                                         <i onClick={() => {
-                                            deleteWidget(_widget.id)
+                                            deleteWidget(editingWidget)
                                             setEditingWidget({})
                                         }}
                                            className="fas fa-trash ss-widget-trash-icon float-right fa-lg"/>
