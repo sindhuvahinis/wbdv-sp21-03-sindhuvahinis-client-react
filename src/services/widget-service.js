@@ -1,9 +1,8 @@
-const TOPICS_API = "http://localhost:8080/api/topics";
-const WIDGETS_API = "http://localhost:8080/api/widgets";
+const WIDGET_API = process.env.REACT_APP_WIDGET_URL
 
 export const createWidget = (topicId, widget) =>
     // TODO: Move this to widget-service.js
-    fetch(`${TOPICS_API}/${topicId}/widgets`,
+    fetch(`${WIDGET_API}/topics/${topicId}/widgets`,
         {
             method: 'POST',
             body: JSON.stringify(widget),
@@ -15,13 +14,13 @@ export const createWidget = (topicId, widget) =>
 
 
 export const deleteWidget = (widgetId) =>
-    fetch(`${WIDGETS_API}/${widgetId}`, {
+    fetch(`${WIDGET_API}/widgets/${widgetId}`, {
         method: 'DELETE'
     })
         .then(response => response.json())
 
 const updateWidget = (widgetId, widget) =>
-    fetch(`${WIDGETS_API}/${widgetId}`, {
+    fetch(`${WIDGET_API}/widgets/${widgetId}`, {
         method: 'PUT',
         body: JSON.stringify(widget),
         headers: {
@@ -31,7 +30,7 @@ const updateWidget = (widgetId, widget) =>
         .then(response => response.json())
 
 const findWidgetsFromTopic = (topicId) =>
-    fetch(`${TOPICS_API}/${topicId}/widgets`, {
+    fetch(`${WIDGET_API}/topics/${topicId}/widgets`, {
         method: 'GET'
     })
         .then(response => response.json())
