@@ -1,3 +1,8 @@
+# Assignment 6 - MySQL
+Implemented list and image widgets
+- List has ordered and unordered option
+- Image has width and height and also link. 
+
 # Assignment 5 - REST
 Implemented widgets
 - Create, update and delete widgets
