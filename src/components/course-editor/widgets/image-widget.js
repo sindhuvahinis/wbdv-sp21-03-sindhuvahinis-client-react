@@ -22,6 +22,7 @@ const ImageWidget = ({widget, editing, setEditingWidget}) => {
 
                     Image width
                     <input className="form-control"
+                           type="number"
                            value={widget.width}
                            onChange={event => setEditingWidget({
                                ...widget,
@@ -29,6 +30,7 @@ const ImageWidget = ({widget, editing, setEditingWidget}) => {
                            })}/>
                     Image height
                     <input className="form-control"
+                           type="number"
                            value={widget.height}
                            onChange={event => setEditingWidget({
                                ...widget,
