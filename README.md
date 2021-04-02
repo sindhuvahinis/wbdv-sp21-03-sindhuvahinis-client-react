@@ -2,6 +2,7 @@
 Implemented list and image widgets
 - List has ordered and unordered option
 - Image has width and height and also link. 
+- Using mySQL widgetService in the backend.
 
 # Assignment 5 - REST
 Implemented widgets
