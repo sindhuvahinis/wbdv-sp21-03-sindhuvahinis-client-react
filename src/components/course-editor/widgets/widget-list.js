@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import widgetService from "../../../services/widget-service"
 import {connect} from "react-redux";
 import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 
 const WidgetList = ({
                         widgets = [],
@@ -62,8 +63,8 @@ const WidgetList = ({
                                         <option value="HEADING">Heading</option>
                                         <option value="PARAGRAPH">Paragraph</option>
                                         <option value="LIST">List</option>
+                                        <option value="IMAGE">Image</option>
                                         <option disabled>Video</option>
-                                        <option disabled>Image</option>
                                         <option disabled>Link</option>
                                         <option disabled>HTML</option>
                                     </select>
@@ -90,6 +91,13 @@ const WidgetList = ({
                                 {
                                     (_widget.id === editingWidget.id ? editingWidget.type === "LIST" : _widget.type === "LIST") &&
                                     <ListWidget
+                                        widget={editingWidget.id === _widget.id ? editingWidget : _widget}
+                                        editing={editingWidget.id === _widget.id}
+                                        setEditingWidget={setEditingWidget}/>
+                                }
+                                {
+                                    (_widget.id === editingWidget.id ? editingWidget.type === "IMAGE" : _widget.type === "IMAGE") &&
+                                    <ImageWidget
                                         widget={editingWidget.id === _widget.id ? editingWidget : _widget}
                                         editing={editingWidget.id === _widget.id}
                                         setEditingWidget={setEditingWidget}/>
