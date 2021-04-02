@@ -2,7 +2,7 @@ import React from 'react'
 
 const ImageWidget = ({widget, editing, setEditingWidget}) => {
     return (
-        <div>
+        <div className="ss-image-widget-container">
             {
                 !editing &&
                 <img width={widget.width}

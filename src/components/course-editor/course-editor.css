@@ -241,3 +241,7 @@ li.list-group-item.ss-module-list-group-item:hover {
 .ss-widget-trash-icon:hover {
     color: red;
 }
+
+.ss-image-widget-container {
+    overflow: scroll;
+}
