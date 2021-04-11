@@ -17,13 +17,18 @@ const QuizzesList = () => {
     return (
         <div className="ss-quiz-list">
             <h2>Quizzes ({quizzes.length})</h2>
-            <ul>
+            <ul className="list-group">
                 {
                     quizzes.map((quiz) => {
                         return (
-                            <li>
+                            <li className="list-group-item">
                                 <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
                                     {quiz.title}
+                                </Link>
+                                <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
+                                    <button className="btn btn-primary float-right">
+                                        Start
+                                    </button>
                                 </Link>
                             </li>
                         )
