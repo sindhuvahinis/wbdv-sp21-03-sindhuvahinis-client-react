@@ -1,6 +1,6 @@
 /* 57 + 20 + 20 + 3 */
 .ss-title-col {
-    width: 52%;
+    width: 47%;
 }
 
 .ss-owned-by-col {
@@ -9,6 +9,9 @@
 
 .ss-last-modified-col {
     width: 20%;
+}
+.ss-quizzes-col {
+    width: 5%;
 }
 
 .ss-grip-col {

@@ -245,3 +245,21 @@ li.list-group-item.ss-module-list-group-item:hover {
 .ss-image-widget-container {
     overflow: auto;
 }
+
+.ss-quiz-list, .ss-quiz-details {
+    margin-top: -70px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ss-quiz-check {
+    color: green;
+}
+
+.ss-quiz-times {
+    color: red;
+}
+
+.ss-quiz-icon {
+    margin-left: 10px;
+}

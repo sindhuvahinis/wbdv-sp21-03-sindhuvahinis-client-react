@@ -9,12 +9,14 @@ const MultipleChoiceQuestion = ({question}) => {
             <h5>
                 {question.question}
                 {
-                    question.correct === yourAnswer &&
-                    <i className="fas fa-check ss-quiz-check ss-quiz-icon"/>
-                }
-                {
+                    highLight &&
                     question.correct !== yourAnswer &&
                     <i className="fas fa-times ss-quiz-times ss-quiz-icon"/>
+                }
+                {
+                    highLight &&
+                    question.correct === yourAnswer &&
+                    <i className="fas fa-check ss-quiz-check ss-quiz-icon"/>
                 }
 
             </h5>
@@ -34,6 +36,17 @@ const MultipleChoiceQuestion = ({question}) => {
                                             }}
                                             type="radio"
                                             name={question._id}/> {choice}
+                                        {
+                                            highLight && choice === yourAnswer &&
+                                            question.correct !== yourAnswer &&
+                                            <i className="fas fa-times ss-quiz-times ss-quiz-icon"/>
+                                        }
+                                        {
+                                            highLight &&
+                                            question.correct === choice &&
+                                            <i className="fas fa-check ss-quiz-check ss-quiz-icon"/>
+                                        }
+
                                     </label>
                                 }
                             </li>

@@ -28,6 +28,8 @@ export default class CourseTable
                             Last Modified
                         </th>
 
+                        <th className="ss-quizzes-col">
+                        </th>
                         <th className="ss-folder-icon-col">
                             <i className="fas fa-folder"/>
                         </th>

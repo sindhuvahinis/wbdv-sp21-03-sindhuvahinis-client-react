@@ -42,6 +42,11 @@ const CourseRow = (
             </td>
             <td className="ss-owned-by-col">{course.owner}</td>
             <td className="ss-last-modified-col">{course.lastModified}</td>
+            <td className="ss-quizzes-col">
+                <Link to={`/courses/${course._id}/quizzes`}>
+                    Quizzes
+                </Link>
+            </td>
             <td/>
             <td/>
             <td>
