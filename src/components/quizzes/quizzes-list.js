@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
+import {connect} from "react-redux";
+import quizService from '../../services/quizzes-service'
 
 const QuizzesList = () => {
     const {courseId} = useParams()
     const [quizzes, setQuizzes] = useState([])
 
-    // TODO: move this to a service file
     useEffect(() => {
-        fetch("http://localhost:4000/api/quizzes")
-            .then(response => response.json())
+        quizService.findAllQuizzes()
             .then((quizzes) => {
                 setQuizzes(quizzes)
             })
