@@ -16,7 +16,7 @@ const QuizzesList = () => {
 
     return (
         <div className="ss-quiz-list">
-            <h2>Quizzes ({quizzes.length})</h2>
+            <h2>Quizzes</h2>
             <ul className="list-group">
                 {
                     quizzes.map((quiz) => {
