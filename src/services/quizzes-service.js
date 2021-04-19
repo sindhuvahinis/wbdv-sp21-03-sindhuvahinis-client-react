@@ -12,13 +12,12 @@ const findQuizById = (qid) => {
 
 const submitQuiz = (quizId, questions) => {
     return fetch(`${QUIZZES_URL}/${quizId}/attempts`, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify(questions),
         headers: {
             'content-type': 'application/json'
         }
     }).then(response => response.json())
-        .then(result => console.log(result))
 }
 
 export default {
