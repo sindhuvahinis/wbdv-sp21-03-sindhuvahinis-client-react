@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
-import {connect} from "react-redux";
 import quizService from '../../services/quizzes-service'
+import QuizAttemptsList from '../quizzes/quiz-attemtps-list'
 
 const QuizzesList = () => {
     const {courseId} = useParams()

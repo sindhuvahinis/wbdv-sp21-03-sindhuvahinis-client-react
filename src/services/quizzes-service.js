@@ -20,9 +20,15 @@ const submitQuiz = (quizId, questions) => {
     }).then(response => response.json())
 }
 
+const findAttemptsForQuiz = (quizId) => {
+    return fetch(`${QUIZZES_URL}/${quizId}/attempts`)
+        .then(response => response.json())
+}
+
 export default {
     findAllQuizzes,
     findQuizById,
-    submitQuiz
+    submitQuiz,
+    findAttemptsForQuiz
 }
 

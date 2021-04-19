@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import MultipleChoiceQuestion from "./multiple-choice-question";
 import TrueFalseQuestion from "./true-false-question";
 
-const Question = ({question}) => {
+const Question = ({question, highLight}) => {
     const [yourAnswer, setYourAnswer] = useState("")
-    const [highLight, setHighLight] = useState(false)
+    // const [highLight, setHighLight] = useState(false)
 
     return (
         <div>
@@ -42,9 +42,9 @@ const Question = ({question}) => {
             }
 
             <p>Your answer: {yourAnswer}</p>
-            <button className="btn btn-success" onClick={() => setHighLight(true)}>
-                Grade
-            </button>
+            {/*<button className="btn btn-success" onClick={() => setHighLight(true)}>*/}
+            {/*    Grade*/}
+            {/*</button>*/}
 
         </div>
     )

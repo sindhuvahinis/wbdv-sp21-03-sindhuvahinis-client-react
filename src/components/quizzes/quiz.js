@@ -3,12 +3,14 @@ import {useParams} from "react-router-dom";
 import Question from "../questions/question";
 import questionService from '../../services/questions-service'
 import quizService from '../../services/quizzes-service'
+import QuizAttemptsList from "./quiz-attemtps-list";
 
 
 const Quiz = () => {
     const {quizId} = useParams()
     const [questions, setQuestions] = useState([])
     const [score, setScore] = useState('')
+    const [highLight, setHighLight] = useState(false)
 
     useEffect(() => {
         questionService.findQuestionsForQuiz(quizId)
@@ -30,16 +32,21 @@ const Quiz = () => {
                     questions.map((question) => {
                         return (
                             <li className="list-group-item">
-                                <Question question={question}/>
+                                <Question question={question} highLight={highLight}/>
                             </li>
                         )
                     })
                 }
             </ul>
-            <button className="btn btn-success"
-                    onClick={() => submitQuiz(quizId, questions)}>
+            <button className="btn btn-success mt-4"
+                    onClick={() => {
+                        submitQuiz(quizId, questions)
+                        setHighLight(true)
+                    }}>
                 Submit
             </button>
+            <QuizAttemptsList quizId={quizId}/>
+
         </div>
     )
 }
