@@ -33,7 +33,10 @@ const TrueFalseQuestion = ({question}) => {
                             + (highLight && choice.key === question.correct ? " list-group-item-success" : "")}>
                                 <label>
                                     <input name={question._id}
-                                           onClick={() => setYourAnswer(choice.key)}
+                                           onClick={() => {
+                                               setYourAnswer(choice.key)
+                                               question.answer = choice.key
+                                           }}
                                            type="radio"/> {choice.displayStr}
 
                                     {

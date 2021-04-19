@@ -1,13 +1,8 @@
 import React, {useState} from "react";
 
 const MultipleChoiceQuestion = ({question}) => {
-    //const [yourAnswer, setYourAnswer] = useState("")
+    const [yourAnswer, setYourAnswer] = useState("")
     const [highLight, setHighLight] = useState(false)
-
-    const setAnswer = (yourAnswer) => {
-        question.answer = yourAnswer;
-        console.log('question object after setting answer ' + question.answer)
-    }
 
     return (
         <div>
@@ -31,19 +26,20 @@ const MultipleChoiceQuestion = ({question}) => {
                     question.choices.map((choice) => {
                         return (
                             <li className={"list-group-item "
-                            + (highLight ? (choice === question.answer ? question.answer === question.correct ? " list-group-item-success" : "list-group-item-danger" : "") : "")
+                            + (highLight ? (choice === yourAnswer ? yourAnswer === question.correct ? " list-group-item-success" : "list-group-item-danger" : "") : "")
                             + (highLight && choice === question.correct ? " list-group-item-success" : "")}>
                                 {
                                     <label>
                                         <input
                                             onClick={() => {
-                                                setAnswer(choice)
+                                                setYourAnswer(choice)
+                                                question.answer = choice
                                             }}
                                             type="radio"
                                             name={question._id}/> {choice}
                                         {
-                                            highLight && choice === question.answer &&
-                                            question.correct !== question.answer &&
+                                            highLight && choice === yourAnswer &&
+                                            question.correct !== yourAnswer &&
                                             <i className="fas fa-times ss-quiz-times ss-quiz-icon"/>
                                         }
                                         {
@@ -59,8 +55,7 @@ const MultipleChoiceQuestion = ({question}) => {
                     })
                 }
             </ul>
-            <p>Your answer: {question.answer}</p>
-            {/*<p>{question.correct}</p>*/}
+            <p>Your answer: {yourAnswer}</p>
             <button className="btn btn-success" onClick={() => setHighLight(true)}>
                 Grade
             </button>
